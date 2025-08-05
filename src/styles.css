@@ -98,4 +98,8 @@ blockquote > p {
   body {
     padding: 1rem;
   }
+
+  p {
+    font-size: large;
+  }
 }
