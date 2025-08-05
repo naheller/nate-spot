@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "Atkinson";
+  src: url('./AtkinsonNext.woff2') format("woff2-variations");
+}
+
+@font-face {
+  font-family: "Atkinson Mono";
+  src: url('./AtkinsonMono.woff2') format("woff2-variations");
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* *, */
+/* ::before, */
+/* ::after { */
+/* 	box-sizing: border-box; */
+/* } */
+
+html {
+  font-family: "Atkinson", system-ui, sans-serif;
+  font-size: 20px;
+}
+
+body {
+  max-width: 650px;
+  margin: auto;
+  padding: 2rem;
+}
+
+nav > a {
+  text-decoration: none;
+}
+
+nav > a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#site-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: "Atkinson Mono", ui-monospace, monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-block-start: 1.5em;
+}
+
+p {
+  line-height: 1.5;
+  margin-block-start: 1.5em;
+  margin-block-end: 1.5em;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+code, pre {
+  font-family: "Atkinson Mono", ui-monospace, monospace;
+  background-color: whitesmoke;
+  font-size: 0.85rem;
+}
+
+pre {
+  overflow-x: scroll;
+  padding: 0.5rem;
+}
+
+p > code {
+  padding: 0.15rem 0.25rem;
+}
+
+blockquote {
+  font-weight: 300;
+  font-style: italic;
+  background-color: whitesmoke;
+  border-left: 0.5em solid gainsboro;
+  padding: 1em 2em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding: 1rem;
+  }
+}

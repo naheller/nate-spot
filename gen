@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Run all scripts to fully generate site
+
+echo '--- Generating blog index ---'
+./gen_index > src/blog/index.md
+wait
+
+echo '--- Generating website ---'
+./gen_site

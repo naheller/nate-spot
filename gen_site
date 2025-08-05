@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Script to generate website files in site/ directory
+
+echo 'Deleting site/ directory if it exists'
+if [ -d site ]; then
+  rm -rf site
+fi
+
+echo 'Making site/ directory'
+mkdir site
+
+echo 'Copying over css and static assets'
+cp src/styles.css site/styles.css
+cp src/AtkinsonMono.woff2 site/AtkinsonMono.woff2
+cp src/AtkinsonNext.woff2 site/AtkinsonNext.woff2
+
+echo 'Collecting markdown files'
+readarray -d '' pages_found < <(find src -maxdepth 3 -type f -name "*.md" -print0)
+pages+=("${pages_found[@]}")
+num_entries=${#pages_found[@]}
+echo "Found $num_entries pages in src/"
+echo "${pages[@]}"
+
+echo 'Making html pages...'
+for page in "${pages[@]}"; do
+    (
+        # output file has html extension and no src/ prefix
+        new_page="${page%.md}.html"
+        new_page="${new_page#src/}"
+
+        directory=$(dirname -- "$new_page")
+        mkdir -p "./site/$directory"
+
+        pandoc $page -o "./site/$new_page" \
+            --template pandoc/template.html \
+            --include-before-body pandoc/header.html \
+            --embed-resources
+    ) &
+done
+wait
