@@ -12,8 +12,9 @@ mkdir site
 
 echo 'Copying over css and static assets'
 cp src/styles.css site/styles.css
-cp src/AtkinsonMono.woff2 site/AtkinsonMono.woff2
-cp src/AtkinsonNext.woff2 site/AtkinsonNext.woff2
+cp src/Rubik.ttf site/Rubik.ttf
+cp src/LibreBaskerville.ttf site/LibreBaskerville.ttf
+cp src/JetBrainsMono.ttf site/JetBrainsMono.ttf
 
 echo 'Collecting markdown files'
 readarray -d '' pages_found < <(find src -maxdepth 3 -type f -name "*.md" -print0)

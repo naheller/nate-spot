@@ -2,9 +2,12 @@
 
 # Run all scripts to fully generate site
 
-echo '--- Generating blog index ---'
+echo '--- Begin generating website ---'
+
 ./gen_index > src/blog/index.md
+
 wait
 
-echo '--- Generating website ---'
 ./gen_site
+
+echo '--- Finish generating website ---'

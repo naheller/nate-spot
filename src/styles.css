@@ -1,13 +1,17 @@
 @font-face {
-  font-family: "Atkinson";
-  src: url('./AtkinsonNext.woff2') format("woff2-variations");
+  font-family: "Rubik";
+  src: url('./Rubik.ttf') format("truetype");
 }
 
 @font-face {
-  font-family: "Atkinson Mono";
-  src: url('./AtkinsonMono.woff2') format("woff2-variations");
-  font-style: normal;
-  font-weight: 300;
+  font-family: "JetBrains Mono";
+  src: url('./JetBrainsMono.ttf') format("truetype");
+}
+
+
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url('./LibreBaskerville.ttf') format("truetype");
 }
 
 /* *, */
@@ -17,18 +21,28 @@
 /* } */
 
 html {
-  font-family: "Atkinson", system-ui, sans-serif;
-  font-size: 20px;
+  font-family: Rubik, sans-serif;
+  font-size: 22px;
+  background-color: floralwhite;
 }
 
 body {
-  max-width: 650px;
+  max-width: 700px;
   margin: auto;
   padding: 2rem;
 }
 
+a {
+  color: black;
+}
+
 nav > a {
   text-decoration: none;
+  font-family: Rubik, sans-serif;
+}
+
+nav > a:hover {
+  text-decoration: underline;
 }
 
 nav > a:not(:last-child) {
@@ -44,11 +58,11 @@ header {
 #site-name {
   margin: 0;
   font-size: 1.25rem;
-  font-family: "Atkinson Mono", ui-monospace, monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-block-start: 1.5em;
+  font-family: 'Libre Baskerville', serif;
 }
 
 p {
@@ -61,9 +75,10 @@ hr {
   border: 1px solid black;
 }
 
-code, pre {
-  font-family: "Atkinson Mono", ui-monospace, monospace;
-  background-color: whitesmoke;
+pre, code {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #565656;
+  color: floralwhite;
   font-size: 0.85rem;
 }
 
@@ -76,11 +91,16 @@ p > code {
   padding: 0.15rem 0.25rem;
 }
 
+pre, code, blockquote {
+  border-radius: 5px;
+}
+
 blockquote {
-  font-weight: 300;
+  font-size: 0.85rem;
   font-style: italic;
-  background-color: whitesmoke;
-  border-left: 0.5em solid gainsboro;
+  font-family: 'Libre Baskerville', serif;
+  border: 2px solid #565656;
+  border-left: 0.75em solid #565656;
   padding: 1em 2em;
   margin-inline-start: 0;
   margin-inline-end: 0;
@@ -88,6 +108,15 @@ blockquote {
 
 blockquote > p {
   margin: 0;
+}
+
+::selection {
+  background: #DCCFC0;
+}
+
+pre::selection, code::selection {
+  color: black;
+  background: #DCCFC0;
 }
 
 @media only screen and (max-width: 767px) {
