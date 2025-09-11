@@ -54,7 +54,7 @@ process_blog_posts() {
           page=${page#src/blog/} # strip src/blog prefix
           page=${page%/index.md}
 
-          echo "- $date - [${title}](${page})"
+          echo "- [${title}](${page})"
         fi
       done
     done

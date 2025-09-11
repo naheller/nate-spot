@@ -1,17 +1,30 @@
 @font-face {
   font-family: "Rubik";
   src: url('./Rubik.ttf') format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url('./Rubik-Italic.ttf') format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url('./LibreBaskerville.ttf') format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url('./LibreBaskerville-Italic.ttf') format("truetype");
+  font-style: italic;
 }
 
 @font-face {
   font-family: "JetBrains Mono";
   src: url('./JetBrainsMono.ttf') format("truetype");
-}
-
-
-@font-face {
-  font-family: "Libre Baskerville";
-  src: url('./LibreBaskerville.ttf') format("truetype");
 }
 
 /* *, */
@@ -65,6 +78,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Libre Baskerville', serif;
 }
 
+h1 {
+  margin-block-end: 1em;
+}
+
 p {
   line-height: 1.5;
   margin-block-start: 1.5em;
@@ -95,8 +112,11 @@ pre, code, blockquote {
   border-radius: 5px;
 }
 
+li:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
 blockquote {
-  font-size: 0.85rem;
   font-style: italic;
   font-family: 'Libre Baskerville', serif;
   border: 2px solid #565656;
@@ -119,7 +139,7 @@ pre::selection, code::selection {
   background: #DCCFC0;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 700px) {
   html {
     font-size: 16px;
   }
@@ -130,5 +150,9 @@ pre::selection, code::selection {
 
   p {
     font-size: large;
+  }
+
+  pre, code {
+    font-size: 1rem;
   }
 }

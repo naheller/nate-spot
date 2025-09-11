@@ -13,7 +13,9 @@ mkdir site
 echo 'Copying over css and static assets'
 cp src/styles.css site/styles.css
 cp src/Rubik.ttf site/Rubik.ttf
+cp src/Rubik-Italic.ttf site/Rubik-Italic.ttf
 cp src/LibreBaskerville.ttf site/LibreBaskerville.ttf
+cp src/LibreBaskerville-Italic.ttf site/LibreBaskerville-Italic.ttf
 cp src/JetBrainsMono.ttf site/JetBrainsMono.ttf
 
 echo 'Collecting markdown files'
