@@ -2,21 +2,25 @@
 
 # Script to generate website files in site/ directory
 
-echo 'Deleting site/ directory if it exists'
+echo 'Deleting site directory if it exists'
 if [ -d site ]; then
   rm -rf site
 fi
 
-echo 'Making site/ directory'
+echo 'Making site directory'
 mkdir site
 
-echo 'Copying over css and static assets'
+echo 'Copying over styles and fonts'
 cp src/styles.css site/styles.css
 cp src/Rubik.ttf site/Rubik.ttf
 cp src/Rubik-Italic.ttf site/Rubik-Italic.ttf
 cp src/LibreBaskerville.ttf site/LibreBaskerville.ttf
 cp src/LibreBaskerville-Italic.ttf site/LibreBaskerville-Italic.ttf
 cp src/JetBrainsMono.ttf site/JetBrainsMono.ttf
+
+echo 'Copying over images'
+mkdir site/images
+cp images/* site/images
 
 echo 'Collecting markdown files'
 readarray -d '' pages_found < <(find src -maxdepth 3 -type f -name "*.md" -print0)
@@ -33,12 +37,11 @@ for page in "${pages[@]}"; do
         new_page="${new_page#src/}"
 
         directory=$(dirname -- "$new_page")
-        mkdir -p "./site/$directory"
+        mkdir -p "site/$directory"
 
-        pandoc $page -o "./site/$new_page" \
+        pandoc $page -o "site/$new_page" \
             --template pandoc/template.html \
-            --include-before-body pandoc/header.html \
-            --embed-resources
+            --include-before-body pandoc/header.html
     ) &
 done
 wait
